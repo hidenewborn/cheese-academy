@@ -1,0 +1,622 @@
+/* ここから下に記載していく */  
+html {
+    scroll-behavior: smooth;  /* スムーススクロール（IEではきかない） */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Comic Sans MS','M PLUS Rounded 1c','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,sans-serif;
+}
+/* フォント参照
+    Font-familyメーカー
+    https://saruwakakun.com/font-family
+    【Google Fonts + 日本語】
+    https://googlefonts.github.io/japanese/
+    おしゃれ英文フォント
+    https://uxmilk.jp/52837
+    ローカルフォントの埋め込み
+    https://dezanari.com/css-font-face/
+    フォント提供元
+    https://okoneya.jp/font/download.html#dl-tgmrg
+*/
+@font-face {
+    font-family: 'myfont'; /* フォント名 */
+    /* フォーマットごとにパスを指定 */
+    src: url('../font/TogeMaruGothic-600-Medium.ttf') format('truetype');
+}
+
+.wf-myfont { font-family: 'myfont'; }
+
+p {
+    text-align: center;
+}
+
+/* 背景動画 */
+.bgvideo {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0; 
+    width: 100%;
+    height: 100%;
+}
+
+/* 背景動画を半透明にするための白い幕 */
+.bgscreen {
+    z-index: 5;
+    background-color: #fff;
+    opacity:0.5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0; 
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1200px;
+    /* background-color: #fafafa; */
+    color: #222222;
+    font-size: 16px;
+    line-height: 24px;
+    z-index: 10;
+}
+
+/* Header */
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 33%;
+    min-width: 300px;
+}
+
+.logo img {
+    width: 100%;
+    padding: 12px 40px;
+}
+
+/* ハンバーガーメニュー */
+.gnavi__menu ul li{
+    display:inline-block;
+    font-size: 20px;
+    padding:  30px 15px 25px 10px;
+}
+.gnavi__menu ul li a{
+    text-decoration: none;
+    color:#222222;    
+}
+.gnavi__menu ul li a:hover{
+    color: #777;
+}
+
+
+/* Mainvisual */
+.mainvisual {
+    width: 100%;
+    height: 400px;
+    /* background-image: url(../img/mainbg_JA.png); */
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 32px;
+    letter-spacing: 0.12em;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    color: white;
+    text-align: center;
+}
+
+/* Content */
+.etitle {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 60px 0 30px 0;
+}
+
+.yellow {
+    color: #ffd61a;
+}
+
+.jtitle {
+    font-size: 18px;
+    padding-bottom: 40px;
+}
+
+.text {
+    padding: 20px 0;
+}
+
+/* スライドショー
+    参考サイト：https://crestadesign.org/horizontal-slideshow/ */
+.slidewrap {
+    display: flex;
+    align-items: center;
+    height: 255px;
+    overflow: hidden;
+    padding-top: 60px;
+}
+
+.slide {
+    display: flex;
+    animation: loop-slide 20s infinite linear 1s both;    
+}
+.slide img {
+    width: 385px;
+    height: 255px;
+}
+
+@keyframes loop-slide {
+    from {transform: translateX(0);}
+    to {transform: translateX(-100%);}
+}
+/* ここまでスライドショー */
+
+/* 左右分割 */
+.dividewrap {
+    padding-top: 60px;
+}
+
+.divide {
+    display: flex;
+}
+
+/* rev classは左右逆向き */
+.rev {
+    flex-flow: row-reverse;
+}
+
+.divide__img {
+    width: 50%;
+    height: 403px;
+}
+
+.divide__img img {
+    width: 100%;
+}
+
+.divide__content {
+    width: 50%;
+    height: 403px;
+    display: flex;
+    align-items: center;    
+}
+
+.divide__content div {
+    width: 430px;
+    padding: 0 50px;
+}
+
+/* rev classのdivは右寄せ */
+/* .rev .divide__content div {
+    margin-right: 0;
+    margin-left: auto;
+} */
+.rev div {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.divide__content p {
+    text-align: left;
+}
+
+.course__title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+
+/* News */
+.cardwrap {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    /* margin-left: 30px; */
+    margin: 0 15px;
+    border: solid 1px #fafafa;
+}
+
+.card:hover {
+    border: solid 1px red;
+}
+
+.card p {
+    text-align: left;
+}
+
+.card__image {
+    width:300px;
+    height:200px;
+}
+
+.card__image img {
+    width:100%;
+    height:100%;
+    object-fit:cover;    
+}
+
+.card__date {
+    padding-top: 30px;
+    padding-bottom: 24px;
+}
+
+.button {
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    /* 縦方向センタリングがいまいち分からない
+        参考サイト：https://zenn.dev/syu/articles/5644da15c5226e */
+    margin: 60px auto;
+    color: white;
+    background-color: #ffd61a;
+    font-size: 18px;
+    border: 0;
+}
+
+.button:hover {
+    background-color: #fffa44;
+}
+
+#add__card {
+    display:none;
+}
+#btn2 {
+    display:none;
+}
+
+/* Google Map レスポンシブ対応
+    参考：https://webdesignday.jp/inspiration/technique/css/4213/ */
+.map {
+    height: 0;
+    overflow: hidden;
+    /* padding-bottom: 56.25%; */
+    padding-bottom: 25%;
+    position: relative;
+}
+.map iframe {
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+}
+
+.infowrap {
+    margin: 60px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    line-height: 50px;
+    padding-bottom: 30px;
+}
+
+.info__left {
+    width: 150px;
+    text-align: left;
+}
+
+.info__right {
+    width: 400px;
+    text-align: left;
+}
+
+.formwrap {
+    margin-top: 50px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form__left {
+    width: 240px;
+    padding: 16px 64px 16px 16px;
+    text-align: left;
+    border: solid 1px #bfbfbf;
+    border-left: transparent;    
+}
+
+.form__right {
+    width: 400px;
+    text-align-last: left;
+    border: solid 1px #bfbfbf;
+    border-right: transparent;    
+}
+
+.form__right input {
+    width: 328px;
+    height: 36px;
+    border: solid 1px #bfbfbf;
+    margin: 8px 0 8px 8px;
+}
+
+.form__right select {
+    width: 328px;
+    height: 36px;
+    border: solid 1px #bfbfbf;
+    margin: 8px 0 8px 8px;
+}
+
+.checkbox {
+    width: 384px;
+    padding: 8px;
+    text-align-last: left;
+    font-size: 14px;
+    border: solid 1px #bfbfbf;
+    border-right: transparent;    
+}
+
+.checkbox p {
+    display: block;
+    margin: 12px 0 12px 10px;
+}
+
+.form__right textarea {
+    width: 328px;
+    height: 144px;
+    border: solid 1px #bfbfbf;
+    margin: 8px 0 8px 8px;
+}
+
+#footer {
+    color: #FFF;
+    background-color: #707070;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 100px;
+}
+
+/* Go Topボタン 
+    参考：https://csshtml.work/rightbottom-fixed/  */
+.gotop{
+    display: block;
+    width: 60px;
+    height: 60px;
+    box-sizing: border-box;
+    background: #FFF;
+    border: 1px solid #999;
+    padding-top: 30px;
+    text-align: center;
+    letter-spacing: -1px;
+    font-size: 85%;
+    text-decoration: none;
+    color: #333;
+    opacity: 0.5;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+.gotop::before{
+    content: "";
+    display: block;
+    border-top: 2px solid #333;
+    border-right: 2px solid #333;
+    width: 25%;
+    height: 25%;
+    top: 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    transform: rotate(-45deg);
+}
+.gotop:hover{
+    opacity: 1;
+}
+
+
+
+
+/* ここからレスポンシブ対応 */
+/* PC用のCSSはメディアクエリの外に記述する */
+
+@media screen and (max-width: 959px) {
+	/* 959px以下に適用されるCSS（タブレット用） */
+
+    /* ハンバーガーメニュー */
+    .gnavi__menu  {
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+        background:#333;
+        font-size: 16px;
+        box-sizing: border-box;
+        z-index: 20
+    }
+    .gnavi__menu ul li {
+        display:block;
+        padding: 20px 28px
+    }
+      
+    .gnavi__menu ul li a {
+        text-decoration: none;
+        color: #ddd
+    }
+      
+    .gnavi__btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 24px;
+        z-index: 30;
+        box-sizing: border-box;
+        cursor: pointer;
+        -webkit-transition: all 400ms;
+        transition: all 400ms
+    }
+      
+    .gnavi__btn span {
+        position: absolute;
+        width: 30px;
+        height: 4px;
+        /* background: #666; */
+        background: #fff;
+        border-radius: 10px;
+        -webkit-transition: all 400ms;
+        transition: all 400ms
+    }
+      
+    .gnavi__btn span:nth-child(1) {
+        top: 0
+    }
+      
+    .gnavi__btn span:nth-child(2) {
+        top: 10px
+    }
+      
+    .gnavi__btn span:nth-child(3) {
+        top: 20px
+    }
+      
+    .gnavi__btn.open {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+      
+    .gnavi__btn.open span {
+        background: #fff
+    }
+      
+    .gnavi__btn.open span {
+        width: 30px;
+    }
+    #gnavi .contents section p {
+        position: absolute;
+        top: 50%;
+        width: 30%;
+        line-height: 1.4;
+        font-size: 20px;
+        color: #fff;
+        text-shadow: 0 0 6px #666
+    }
+      
+    #gnavi .contents section:nth-child(odd) p {
+        left: 10%
+    }
+      
+    #gnavi .contents section:nth-child(even) p {
+        right: 10%
+    }
+    
+    /* コースの左右分割を縦並びに */
+    /* .dividewrap {
+        padding-top: 60px;
+    } */
+
+    .divide {
+        display: block;
+    }
+
+    /* rev classは左右逆向き */
+    /* .rev {
+        flex-flow: row-reverse;
+    } */
+
+    .divide__img {
+        width: 100%;
+        /* height: 403px; */
+        height: auto;
+    }
+
+    .divide__img img {
+        width: 100%;
+    }
+
+    .divide__content {
+        width: 100%;
+        /* height: 403px; */
+        height: auto;
+        display: flex;
+        align-items: center;  
+        margin-bottom: 20px;  
+    }
+
+    .divide__content div {
+        /* width: 430px; */
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    /* rev classのdivは右寄せ */
+    /* .rev .divide__content div {
+        margin-right: 0;
+        margin-left: auto;
+    } */
+    .rev div {
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .divide__content p {
+        text-align: left;
+    }
+
+    .course__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 40px;
+    }
+
+    /* Google Mapの縦横比を変更 */
+    .map {
+        padding-bottom: 56.25%;
+    }
+
+    /* トップへ戻るボタン */
+    .gotop{
+        width: 40px;
+        height: 40px;
+        text-indent: -9999px;
+        opacity: 1;
+        border: none;
+        background: none;
+        bottom: 10px;
+        right: 10px;
+    }
+    .gotop::before{
+        bottom: 0;
+        border-top: 2px solid #ffd61a;
+        border-right: 2px solid #ffd61a;    }
+
+}
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+
+
+
+}
+
+
